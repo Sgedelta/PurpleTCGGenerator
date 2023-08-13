@@ -1,0 +1,5 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/sgeas/source/repos/LasiLore/LasiLoreGenerator/Content/Background.jpg","C:/Users/sgeas/source/repos/LasiLore/LasiLoreGenerator/Content/bin/DesktopGL/Content/Background.xnb","TextureProcessor","Texture2DContent",151047,5263537,0.2353916
+"C:/Users/sgeas/source/repos/LasiLore/LasiLoreGenerator/Content/Instructions.png","C:/Users/sgeas/source/repos/LasiLore/LasiLoreGenerator/Content/bin/DesktopGL/Content/Instructions.xnb","TextureProcessor","Texture2DContent",72867,1123517,0.0233414
+"C:/Users/sgeas/source/repos/LasiLore/LasiLoreGenerator/Content/UsableFont20.spritefont","C:/Users/sgeas/source/repos/LasiLore/LasiLoreGenerator/Content/bin/DesktopGL/Content/UsableFont20.xnb","FontDescriptionProcessor","SpriteFontContent",2077,37919,0.1566509
+"C:/Users/sgeas/source/repos/LasiLore/LasiLoreGenerator/Content/UsableFont24.spritefont","C:/Users/sgeas/source/repos/LasiLore/LasiLoreGenerator/Content/bin/DesktopGL/Content/UsableFont24.xnb","FontDescriptionProcessor","SpriteFontContent",2077,70687,0.1590739
