@@ -39,6 +39,9 @@ namespace LasiLoreGenerator
 
         private Color textColor;
 
+        private string Documents;
+        private string PartialFolder;
+        private string FullFolder;
 
 
         public Game1()
@@ -69,8 +72,9 @@ namespace LasiLoreGenerator
 
             textColor = new Color(62, 37, 92);
 
-            
-
+            Documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            PartialFolder = Documents + "/FW/LasiLoreGenerator/";
+            FullFolder = PartialFolder + "Cards/";
 
         }
 
@@ -89,6 +93,12 @@ namespace LasiLoreGenerator
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+
+            System.IO.Directory.CreateDirectory(FullFolder);
+            if (!System.IO.File.Exists(PartialFolder + "CardGeneration.txt"))
+            {
+                System.IO.File.Create(PartialFolder + "CardGeneration.txt");
+            }
 
             if(Keyboard.GetState().IsKeyDown(Keys.P))
             {
@@ -119,9 +129,11 @@ namespace LasiLoreGenerator
         /// </summary>
         private void ClearAllGenerated()
         {
+
+            
             try
             {
-                IEnumerable<string> oldCards = System.IO.Directory.EnumerateFiles("../../../CardOutput/");
+                IEnumerable<string> oldCards = System.IO.Directory.EnumerateFiles( FullFolder + "/CardOutput/");
 
                 foreach(string file in oldCards)
                 {
@@ -148,7 +160,7 @@ namespace LasiLoreGenerator
             //Read in All Cards
             try
             {
-                reader = new StreamReader("../../../CardGeneration.txt");
+                reader = new StreamReader(PartialFolder + "CardGeneration.txt");
                 CardInfo = new List<string>();
                 while(!reader.EndOfStream)
                 {
@@ -232,7 +244,7 @@ namespace LasiLoreGenerator
                 //SAVE
                 try 
                 {
-                    saver = new StreamWriter("../../../CardOutput/" + Cards[i].Name + ".png");
+                    saver = new StreamWriter(FullFolder + Cards[i].Name + ".png");
                     CardTarget.SaveAsPng(saver.BaseStream, Background.Width, Background.Height);
                 }
                 catch (Exception e)
